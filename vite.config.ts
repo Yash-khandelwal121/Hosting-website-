@@ -5,6 +5,7 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/vibe-code-anti/',
   plugins: [react()],
   resolve: {
     alias: {
