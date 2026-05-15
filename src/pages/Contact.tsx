@@ -75,16 +75,8 @@ const Contact = () => {
                   desc: 'Send us a detailed technical query.', 
                   val: 'hello@hostnestic.online', 
                   icon: Mail, 
-                  action: () => window.location.href = 'mailto:hello@hostnestic.online',
+                  action: () => window.location.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=hello@hostnestic.online',
                   label: 'Send Email'
-                },
-                { 
-                  title: 'Live Engineering Chat', 
-                  desc: 'Immediate help from our cloud experts.', 
-                  val: '24/7 Instant Access', 
-                  icon: MessageSquare, 
-                  action: () => alert('Starting Live Chat...'),
-                  label: 'Start Live Chat'
                 },
                 { 
                   title: 'Developer Community', 
@@ -95,7 +87,11 @@ const Contact = () => {
                   label: 'Join Community'
                 }
               ].map((item, i) => (
-                <div key={i} className="premium-card p-8 group hover:bg-navy-900/80 transition-all duration-300">
+                <div 
+                  key={i} 
+                  onClick={item.action}
+                  className="premium-card p-8 group hover:bg-navy-900/80 transition-all duration-300 cursor-pointer"
+                >
                   <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-primary/20 transition-all">
                     <item.icon className="w-7 h-7 text-primary" />
                   </div>
@@ -103,7 +99,6 @@ const Contact = () => {
                   <p className="text-slate-500 text-sm mb-6 font-medium">{item.desc}</p>
                   <div className="text-white font-bold mb-6">{item.val}</div>
                   <button 
-                    onClick={item.action}
                     className="flex items-center text-xs font-black uppercase tracking-[0.2em] text-primary hover:text-white transition-colors"
                   >
                     {item.label} <ArrowRight className="ml-2 w-4 h-4" />
